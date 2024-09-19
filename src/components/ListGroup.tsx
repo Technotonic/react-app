@@ -4,9 +4,10 @@ import Button from "./Button";
 interface ListGroupProps {
   cities: string[];
   heading: string;
+  setHeding : (heading: string) => void;
 }
 
-const ListGroup = ({ cities, heading }: ListGroupProps) => {
+const ListGroup = ({ cities, heading , setHeding }: ListGroupProps) => {
   const [selectedIndex, setSetselectedIndex] = useState(-1);
 
   return (
@@ -35,7 +36,7 @@ const ListGroup = ({ cities, heading }: ListGroupProps) => {
             </div>
           </div>
           <div className="card-footer text-muted justify-content-end">
-            <Button selectedIndex={selectedIndex} cities={cities}>
+            <Button  handleOnClick={() => setHeding(cities[selectedIndex])}>
               Show
             </Button>
           </div>
